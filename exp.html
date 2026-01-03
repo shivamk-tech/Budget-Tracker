@@ -104,39 +104,8 @@
 </head>
 
 <body>
-    <button>New Expense</button>
-    <div class="expensepop">
-        <div class="cut"><i class="fa-solid fa-xmark"></i></div>
-        <form action="">
-            <input type="text" placeholder="Enter Subject">
-            <input type="text" placeholder="Enter Amount">
-            <select name="Category" id="Category">
-                <option value="Online">Food</option>
-                <option value="Cash">Travel</option>
-                <option value="Debit Card">Shopping</option>
-                <option value="Credit Card">Rent</option>
-                <option value="Credit Card">Others</option>
-            </select>
-            <select name="Payement Mode" id="Category">
-                <option value="Online">Online</option>
-                <option value="Cash">Cash</option>
-                <option value="Debit Card">Debit Card</option>
-                <option value="Credit Card">Credit Card</option>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-    <script>
-        let btn = document.querySelector("button");
-        let expensepop = document.querySelector(".expensepop");
-        let cut = document.querySelector(".cut");
-        btn.addEventListener("click", () => {
-            expensepop.classList.toggle("active");
-        });
-        cut.addEventListener("click", () => {
-            expensepop.classList.toggle("active");
-        });
-    </script>
+    
+    <script src="exp.js"></script>
 </body>
 
 </html>

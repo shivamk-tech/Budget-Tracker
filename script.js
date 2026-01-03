@@ -84,6 +84,9 @@ expenses.forEach(e => {
 
 console.log(totals);
 // { Food: 500, Travel: 500 }
+
+
+
 let btn = document.querySelector("button");
 let blur = document.querySelector(".blur");
 let expensepop = document.querySelector(".expensepop");
@@ -103,15 +106,48 @@ form.addEventListener("submit", (e) => {
   const amount = document.querySelector("#famount").value;
   const category = document.querySelector("#fCategory").value;
   const payment = document.querySelector("#fPayement").value;
+  let okey = Number(localStorage.getItem("key"));
+  okey++;
   console.log(subject, amount, category, payment);
   const expense = {
-    subjecto:subject,
-    amounto:amount,
-    categoryo:category,
-    paymento:payment,
-    id:new Date().getTime().toString()
+    subjecto: subject,
+    amounto: amount,
+    categoryo: category,
+    paymento: payment,
+    id: okey
   }
-  localStorage.setItem(expense.id,JSON.stringify(expense));
+
+  localStorage.setItem(okey, JSON.stringify(expense));
+  localStorage.setItem("key", okey);
+
+  const subjectdiv = document.querySelector(".subject");
+  const span = document.createElement("span");
+  span.classList.add("sub");
+  const h4 = document.createElement("h4");
+  let savedExpense = JSON.parse(localStorage.getItem(`${okey}`));
+  console.log(savedExpense);
+  
+  h4.innerText = savedExpense.subjecto;
+  span.appendChild(h4);
+  subjectdiv.appendChild(span);
+
   expensepop.classList.toggle("active");
   blur.classList.toggle("bluractive");
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const subjectdiv = document.querySelector(".subject");
+  const maxKey = Number(localStorage.getItem("key")) || 0;
+
+  for (let i = 1; i <= maxKey; i++) {
+    const savedExpense = JSON.parse(localStorage.getItem(i));
+    if (savedExpense) {
+      const span = document.createElement("span");
+      span.classList.add("sub");
+      const h4 = document.createElement("h4");
+      h4.innerText = savedExpense.subjecto;
+      span.appendChild(h4);
+      subjectdiv.appendChild(span);
+    }
+  }
 });
