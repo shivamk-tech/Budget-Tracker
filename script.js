@@ -7,7 +7,7 @@ sections.forEach(section => {
   });
 });
 
-console.log("hello")
+
 const ctx = document.getElementById('expenseChart');
 
 new Chart(ctx, {
