@@ -1,6 +1,4 @@
 const sections = document.querySelectorAll(".section");
-console.log("hello")
-console.log("hello")
 
 sections.forEach(section => {
   section.addEventListener("click", () => {
@@ -155,3 +153,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+
+console.log("Are you revewing ??")
