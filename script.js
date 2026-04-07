@@ -6,6 +6,8 @@ sections.forEach(section => {
     section.classList.add("active");
   });
 });
+
+console.log("hello")
 const ctx = document.getElementById('expenseChart');
 
 new Chart(ctx, {
